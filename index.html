@@ -190,11 +190,19 @@ nav{padding:16px;}
 </div>
 <div style="background:#111;border:1px solid #1e1e1e;padding:48px;">
 <h3 style="color:#fff;font-size:28px;font-weight:900;margin-bottom:28px;">QUICK ENQUIRY</h3>
-<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">YOUR NAME</label><input type="text" placeholder="John Smith" style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"></div>
-<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">EMAIL</label><input type="email" placeholder="john@email.com" style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"></div>
-<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">SAFARI TYPE</label><select style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"><option>Jeep Safari – Kaziranga</option><option>Elephant Safari</option><option>Birding Safari</option><option>Full Package</option></select></div>
-<div style="margin-bottom:20px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">MESSAGE</label><textarea placeholder="Tell us about your trip..." style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;min-height:100px;resize:vertical;"></textarea></div>
-<button onclick="alert('Thank you! We will contact you within 24 hours.')" style="width:100%;background:#ff5c1a;color:#000;border:none;padding:16px;font-size:18px;font-weight:900;cursor:pointer;">SEND ENQUIRY →</button>
+<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">YOUR NAME</label><input id="ename" type="text" placeholder="John Smith" style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"></div>
+<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">EMAIL</label><input id="eemail" type="email" placeholder="john@email.com" style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"></div>
+<div style="margin-bottom:16px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">SAFARI TYPE</label><select id="esafari" style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;"><option>Jeep Safari – Kaziranga</option><option>Elephant Safari</option><option>Birding Safari</option><option>Full Package</option></select></div>
+<div style="margin-bottom:20px;"><label style="color:#555;font-size:11px;letter-spacing:2px;display:block;margin-bottom:6px;">MESSAGE</label><textarea id="emsg" placeholder="Tell us about your trip..." style="width:100%;background:#0a0a0a;border:1px solid #252525;color:#fff;padding:12px;font-size:14px;outline:none;min-height:100px;resize:vertical;"></textarea></div>
+<button onclick="
+var name=document.getElementById('ename').value;
+var email=document.getElementById('eemail').value;
+var safari=document.getElementById('esafari').value;
+var msg=document.getElementById('emsg').value;
+if(!name){alert('Please enter your name');return;}
+var text='New Safari Enquiry!%0A%0AName: '+name+'%0AEmail: '+email+'%0ASafari: '+safari+'%0AMessage: '+msg;
+window.open('https://wa.me/919085926824?text='+text,'_blank');
+" style="width:100%;background:#ff5c1a;color:#000;border:none;padding:16px;font-size:18px;font-weight:900;cursor:pointer;">SEND ON WHATSAPP →</button>
 </div>
 </div>
 </div>

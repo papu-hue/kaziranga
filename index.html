@@ -227,6 +227,89 @@ Located along the Bhutan border, it is defined by the Manas River, lush alluvial
 </div>
 </div>
 </div>
+<div style="max-width: 550px; margin: 30px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 25px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    
+    <h3 style="margin-top:0; color: #1a202c; font-size: 20px; border-bottom: 2px solid #3182ce; padding-bottom: 8px; display: inline-block;">Write a Review</h3>
+    
+    <form id="mainReviewForm" style="margin-top: 15px;">
+        <div style="margin-bottom: 12px;">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#4a5568; font-size:14px;">Your Name:</label>
+            <input type="text" id="pName" placeholder="Enter your name" required style="width:100%; padding:10px; border:1px solid #cbd5e0; border-radius:6px; box-sizing:border-box; font-size:14px;">
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#4a5568; font-size:14px;">Rating:</label>
+            <select id="pRating" required style="width:100%; padding:10px; border:1px solid #cbd5e0; border-radius:6px; box-sizing:border-box; font-size:14px; background-color: #fff;">
+                <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                <option value="3">⭐⭐⭐ (3/5)</option>
+                <option value="2">⭐⭐ (2/5)</option>
+                <option value="1">⭐ (1/5)</option>
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#4a5568; font-size:14px;">Your Review:</label>
+            <textarea id="pText" rows="4" placeholder="Share your experience with us..." required style="width:100%; padding:10px; border:1px solid #cbd5e0; border-radius:6px; box-sizing:border-box; font-size:14px; resize:vertical;"></textarea>
+        </div>
+        
+        <button type="submit" style="width:100%; padding:12px; background:#48bb78; color:white; border:none; border-radius:6px; font-size:16px; font-weight:bold; cursor:pointer; transition: background 0.2s;">Submit Review</button>
+    </form>
+
+    <hr style="margin:30px 0; border:0; border-top:1px solid #e2e8f0;">
+    
+    <h3 style="margin-top:0; color: #1a202c; font-size: 20px; border-bottom: 2px solid #3182ce; padding-bottom: 8px; display: inline-block;">Customer Reviews</h3>
+    
+    <div id="mainDisplay" style="margin-top: 15px;">
+        <div style="background:#f7fafc; padding:15px; margin-bottom:12px; border-left:4px solid #3182ce; border-radius:4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                <strong style="color:#2d3748; font-size:15px;">Rahul Sharma</strong>
+                <span>⭐⭐⭐⭐⭐</span>
+            </div>
+            <p style="margin:0; color:#4a5568; font-size:14px; line-height:1.5;">This website is amazing! I really loved their service.</p>
+        </div>
+
+        <div style="background:#f7fafc; padding:15px; margin-bottom:12px; border-left:4px solid #3182ce; border-radius:4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                <strong style="color:#2d3748; font-size:15px;">Amit Verma</strong>
+                <span>⭐⭐⭐⭐</span>
+            </div>
+            <p style="margin:0; color:#4a5568; font-size:14px; line-height:1.5;">Great experience so far, just need to improve the loading speed a bit.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('mainReviewForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Page ko reload hone se rokne ke liye
+        
+        // Input values nikalna
+        let name = document.getElementById('pName').value;
+        let ratingValue = document.getElementById('pRating').value;
+        let reviewText = document.getElementById('pText').value;
+        
+        // Rating number ko stars me badalna
+        let stars = '⭐'.repeat(ratingValue);
+        
+        // Naya review card banana
+        let newReview = document.createElement('div');
+        newReview.style = "background:#f7fafc; padding:15px; margin-bottom:12px; border-left:4px solid #3182ce; border-radius:4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-in-out;";
+        newReview.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                <strong style="color:#2d3748; font-size:15px;">${name}</strong>
+                <span>${stars}</span>
+            </div>
+            <p style="margin:0; color:#4a5568; font-size:14px; line-height:1.4;">${reviewText}</p>
+        `;
+        
+        // Naye review ko list me sabse upar daalna
+        let displayArea = document.getElementById('mainDisplay');
+        displayArea.insertBefore(newReview, displayArea.firstChild);
+        
+        // Form ko khali (reset) karna
+        document.getElementById('mainReviewForm').reset();
+    });
+</script>
 <footer><p>2024 Kaziranga Wildlife Safari. Made with <span>love</span> in Assam, India❤️</p></footer>
 </body>
 </html>
